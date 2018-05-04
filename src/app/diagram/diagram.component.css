@@ -1,0 +1,25 @@
+.control_section {
+    height: 600px;
+    background-color: transparent;
+}
+
+.diagram_section {
+    width: calc(100% - 255px);
+    height: 100%;
+    float: left;
+}
+
+.middle_section {
+    float: left;
+    width: 5px;
+    height: 100%;
+}
+
+.symPalette_section {
+    width: 250px;
+    height: 100%;
+    float: left;
+}
+#symbolpalette{
+    display: inline-block;
+}

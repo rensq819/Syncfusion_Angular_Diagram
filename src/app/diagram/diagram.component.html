@@ -15,9 +15,27 @@
     <script src="systemjs.config.js"></script>
   </head>
   <body>
-    <div>
-      <ej-diagram id="diagramCore" width="900px" height="450px" [dataSourceSettings]="dataSourceSettings" [layout]="layout" [defaultSettings]="defaultSettings" [nodeTemplate]="nodeTemplate">
-      </ej-diagram>
+    <div class="control_section">
+      <div class="symPalette_section">
+          <ej-symbolpalette   id="symbolpalette" diagramId="diagramCore" 
+          [palettes]="palettes" height="600px" width="250px" 
+          [paletteItemWidth]="50" 
+          [paletteItemHeight]="50" 
+          [previewWidth]="100" 
+          [previewHeight]="100" 
+          [showPaletteItemText]="showPaletteItemText">
+          </ej-symbolpalette>
+      </div>
+      <div class="middle_section"></div>
+      <div class="diagram_section">
+        <ej-diagram id="diagramCore" width="900px" height="600px" 
+          [pageSettings]="pageSettings" 
+          [dataSourceSettings]="dataSourceSettings" 
+          [layout]="layout" 
+          [defaultSettings]="defaultSettings" 
+          [nodeTemplate]="nodeTemplate">
+        </ej-diagram>
+      </div>
     </div>
   </body>
 </html>
