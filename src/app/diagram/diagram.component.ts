@@ -55,15 +55,15 @@ export class DiagramComponent implements OnInit {
 
       this.palettes = [
         {
-            'name': 'Flow Shapes', 'expanded': true,
+            'name': 'Basic Shapes', 'expanded': true,
             'items': [
                 {
-                    'name': 'Rectangle', 'height': 45, 'width': 70, 'offsetX': 70 / 2, 'offsetY': 45 / 2,
-                    'fillColor': 'white', 'borderWidth': 1.5, 'type': 'basic', 'shape': 'rectangle'
+                    name: 'Rectangle', height: 45, width: 70, offsetX: 70 / 2, offsetY: 45 / 2,
+                    fillColor: 'white', borderWidth: 1.5, type: 'basic', shape: 'rectangle'
                 },
                 {
-                    'name': 'Ellipse', 'width': 70, 'height': 70, 'offsetX': 20, 'offsetY': 20, 'fillColor': 'white',
-                    'borderWidth': 1.5, 'type': 'basic', 'shape': 'ellipse'
+                    name: 'Ellipse', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
+                    borderWidth: 1.5, type: 'basic', shape: 'ellipse'
                 },
                 {
                     'name': 'Parallelogram', 'width': 70, 'height': 70, 'offsetX': 20, 'offsetY': 30,
@@ -74,6 +74,50 @@ export class DiagramComponent implements OnInit {
                     'name': 'Dimond', 'width': 70, 'height': 70, 'offsetX': 20, 'offsetY': 20,
                     'fillColor': 'white', 'borderWidth': 1.8, 'shape': 'polygon',
                     'points': [{ x: 50, y: 1 }, { x: 100, y: 50 }, { x: 50, y: 100 }, { x: 1, y: 50 }]
+                }
+            ]
+        },
+        {
+            'name': 'BPMN Shapes', 'expanded': true,
+            'items': [
+                {
+                    name: 'Start Node', height: 70, width: 70, offsetX: 70 / 2, offsetY: 45 / 2,
+                    fillColor: 'white', borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Event,
+                    event: ej.datavisualization.Diagram.BPMNEvents.Start, trigger: ej.datavisualization.Diagram.BPMNTriggers.None
+                },
+                {
+                    name: 'End Node', height: 70, width: 70, offsetX: 70 / 2, offsetY: 45 / 2,
+                    fillColor: 'white', borderWidth: 2, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Event,
+                    event: ej.datavisualization.Diagram.BPMNEvents.End, trigger: ej.datavisualization.Diagram.BPMNTriggers.None
+                },
+                {
+                    name: 'None Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
+                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
+                    gateway: ej.datavisualization.Diagram.BPMNGateways.None
+                },
+                {
+                    name: 'Exclusive Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
+                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
+                    gateway: ej.datavisualization.Diagram.BPMNGateways.Exclusive
+                },
+                {
+                    name: 'Parallel Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
+                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
+                    gateway: ej.datavisualization.Diagram.BPMNGateways.Parallel
+                },
+                {
+                    name: 'Inclusive Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
+                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
+                    gateway: ej.datavisualization.Diagram.BPMNGateways.Inclusive
+                },
+                {
+                    name: 'Activity', width: 100, height: 100, offsetX: 100, offsetY: 100, fillColor: 'white',
+                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Activity,
+                    activity: ej.datavisualization.Diagram.BPMNActivity.Task
+                },
+                {
+                    name: 'DataSource', width: 100, height: 100, offsetX: 100, offsetY: 100, fillColor: 'white',
+                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.DataSource
                 }
             ]
         },
@@ -102,16 +146,16 @@ export class DiagramComponent implements OnInit {
             'name': 'Connectors', 'expanded': true,
             'items': [
                 {
-                    'name': 'Link1', 'segments': [{ 'type': 'orthogonal' }], 'sourcePoint': { x: 0, y: 0 },
+                    'name': 'Orthogonal Link', 'segments': [{ 'type': 'orthogonal' }], 'sourcePoint': { x: 0, y: 0 },
                     'targetPoint': { x: 40, y: 40 },
-                    'targetDecorator': { 'shape': 'arrow', 'borderColor': '#A9A9A9', 'fillColor': '#A9A9A9' },
-                    'lineWidth': 2, 'lineColor': '#A9A9A9'
+                    'targetDecorator': { 'shape': 'arrow', 'borderColor': 'black', 'fillColor': 'black' },
+                    'lineWidth': 1.5, 'lineColor': 'black'
                 },
                 {
-                    'name': 'Link21', 'segments': [{ 'type': 'straight' }], 'sourcePoint': { x: 0, y: 0 },
+                    'name': 'Straight Link', 'segments': [{ 'type': 'straight' }], 'sourcePoint': { x: 0, y: 0 },
                     'targetPoint': { x: 40, y: 40 },
-                    'targetDecorator': { 'shape': 'arrow', 'borderColor': '#A9A9A9', 'fillColor': '#A9A9A9' },
-                    'lineWidth': 2, 'lineColor': '#A9A9A9'
+                    'targetDecorator': { 'shape': 'arrow', 'borderColor': 'black', 'fillColor': 'black' },
+                    'lineWidth': 1.5, 'lineColor': 'black'
                 },
             ],
         }
