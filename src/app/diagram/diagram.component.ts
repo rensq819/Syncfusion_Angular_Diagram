@@ -76,55 +76,7 @@ export class DiagramComponent implements OnInit {
                     points: [{ x: 50, y: 1 }, { x: 100, y: 50 }, { x: 50, y: 100 }, { x: 1, y: 50 }]
                 }
             ]
-        },
-        {
-            'name': 'BPMN Shapes', 'expanded': true,
-            'items': [
-                {
-                    name: 'Start Node', height: 70, width: 70, offsetX: 70 / 2, offsetY: 45 / 2,
-                    fillColor: 'white', borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Event,
-                    event: ej.datavisualization.Diagram.BPMNEvents.Start, trigger: ej.datavisualization.Diagram.BPMNTriggers.None
-                },
-                {
-                    name: 'End Node', height: 70, width: 70, offsetX: 70 / 2, offsetY: 45 / 2,
-                    fillColor: 'white', borderWidth: 2, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Event,
-                    event: ej.datavisualization.Diagram.BPMNEvents.End, trigger: ej.datavisualization.Diagram.BPMNTriggers.None
-                },
-                {
-                    name: 'None Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
-                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
-                    gateway: ej.datavisualization.Diagram.BPMNGateways.None
-                },
-                {
-                    name: 'Exclusive Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
-                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
-                    gateway: ej.datavisualization.Diagram.BPMNGateways.Exclusive
-                },
-                {
-                    name: 'Parallel Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
-                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
-                    gateway: ej.datavisualization.Diagram.BPMNGateways.Parallel
-                },
-                {
-                    name: 'Inclusive Gateway', width: 70, height: 70, offsetX: 20, offsetY: 20, fillColor: 'white',
-                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Gateway,
-                    gateway: ej.datavisualization.Diagram.BPMNGateways.Inclusive
-                },
-                {
-                    name: 'Activity', width: 100, height: 100, offsetX: 100, offsetY: 100, fillColor: 'white',
-                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Activity,
-                    activity: ej.datavisualization.Diagram.BPMNActivity.Task
-                },
-                {
-                    name: 'DataSource', width: 100, height: 100, offsetX: 100, offsetY: 100, fillColor: 'white',
-                    borderWidth: 1.5, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.DataSource
-                },
-                {
-                    name: 'Group', width: 100, height: 100, offsetX: 100, offsetY: 100, fillColor: 'white',
-                    borderWidth: 2, type: ej.datavisualization.Diagram.Shapes.BPMN, shape: ej.datavisualization.Diagram.BPMNShapes.Group
-                }
-            ]
-        },
+        },        
         {
             'name': 'Swimlane Shapes', 'expanded': true,
             'items': [
@@ -171,19 +123,20 @@ export class DiagramComponent implements OnInit {
   
   ngOnInit() {
   }
+
   savediagram() {
       var diagram = $("#diagramCore").ejDiagram("instance");
       var save = diagram.save();
       debugger
-      save.dataSourceSettings.dataSource.forEach(element => {
-        let index = 1;
-        let temp = [];
-        let item = element as Array<any>;
-        debugger
-        element.forEach
-          item.push({id: index++});
-          debugger
-      }); 
+    //   save.dataSourceSettings.dataSource.forEach(element => {
+    //     let index = 1;
+    //     let temp = [];
+    //     let item = element as Array<any>;
+    //     debugger
+    //     element.forEach
+    //       item.push({id: index++});
+    //       debugger
+    //   }); 
     //   alert(JSON.stringify(save));
       console.log(JSON.stringify(save));
   }
