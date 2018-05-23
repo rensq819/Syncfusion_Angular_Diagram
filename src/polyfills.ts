@@ -80,3 +80,4 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 import * as jquery from 'jquery';
 window['jQuery'] = jquery;
 window['$'] = jquery;
+

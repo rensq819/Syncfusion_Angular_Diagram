@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import { Diagram } from '../diagram';
 
 @Component({
   selector: 'app-diagram',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./diagram.component.css']
 })
 export class DiagramComponent implements OnInit {
-
+    
   pageSettings: Object;
   dataSourceSettings: Object;
   defaultSettings:Object;
@@ -16,7 +18,8 @@ export class DiagramComponent implements OnInit {
   palettes: Array<any>;
   showPaletteItemText: boolean;
 
-  constructor() {
+  constructor(private http: HttpClient) {
+      
       let data = [
         { Name: "Elizabeth", Role: "Director" },
         { Name: "Christina", ReportingPerson: "Elizabeth", Role: "Manager" },
@@ -118,16 +121,42 @@ export class DiagramComponent implements OnInit {
     ];
     
     this.showPaletteItemText = false;
-
   }
   
   ngOnInit() {
   }
 
-  savediagram() {
-      var diagram = $("#diagramCore").ejDiagram("instance");
-      var save = diagram.save();
-      debugger
+  saveDiagram(diagramName: string) {
+    
+    var diagram = $("#diagramCore").ejDiagram("instance");
+    var json = diagram.save();
+
+    //add diagram name
+    var key = "name";
+    var value = diagramName;
+    json[key] = value;
+
+    var string = JSON.stringify(json);
+
+    // pass diagram json to server.js
+    let dd = new Diagram;
+    dd.id = diagramName;
+    dd.value = string;
+    console.log(dd);
+
+    return this.http.post('http://localhost:3000/api/workflow', dd)
+    .subscribe(
+        (val) => {
+            console.log("POST call successful value returned in body", 
+                        val);
+        },
+        response => {
+            console.log("POST call in error", response);
+        },
+        () => {
+            console.log("The POST observable is now completed.");
+        });
+
     //   save.dataSourceSettings.dataSource.forEach(element => {
     //     let index = 1;
     //     let temp = [];
@@ -138,6 +167,7 @@ export class DiagramComponent implements OnInit {
     //       debugger
     //   }); 
     //   alert(JSON.stringify(save));
-      console.log(JSON.stringify(save));
+    
   }
+  
 }

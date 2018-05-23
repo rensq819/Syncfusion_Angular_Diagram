@@ -33,7 +33,13 @@
   </div>
   <br>
   <div>
-    <input type="button" value="savediagram" (click)="savediagram()" />
+    <label for="diagramName">Diagram Name: </label>
+    <input #diagramName type="text" id="diagramName" required>
+  </div>
+  <br>
+  <div>
+    <input type="button" value="Save Diagram" (click)="saveDiagram(diagramName.value)" />
+    <input type="button" value="Update Diagram" (click)="updateDiagram(diagramName.value)" />
   </div>
 </body>
 
