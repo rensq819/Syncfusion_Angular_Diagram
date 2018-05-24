@@ -31,3 +31,11 @@ app.post('/api/workflow', function (req, res, next) {
     // insert into db
     db.collection('workflows').insertOne(JSON.parse(data));
 });
+
+app.get('/api/workflow', function (req, res) {
+    var temp = db.collection('workflows').find({})
+    .toArray(function(error, data){
+        if(error) throw error;
+        res.send(data);
+    });    
+})

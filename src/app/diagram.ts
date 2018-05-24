@@ -1,4 +1,4 @@
 export class Diagram {
-    id: string;
+    name: string;
   value: string;
 }

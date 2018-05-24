@@ -4,7 +4,7 @@ import { EJAngular2Module } from 'ej-angular2';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DiagramComponent } from './diagram/diagram.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

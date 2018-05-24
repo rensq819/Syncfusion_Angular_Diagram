@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import  {HttpClient } from "@angular/common/http";
 import { Diagram } from '../diagram';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-diagram',
@@ -19,37 +22,11 @@ export class DiagramComponent implements OnInit {
   showPaletteItemText: boolean;
 
   constructor(private http: HttpClient) {
-      
-      let data = [
-        { Name: "Elizabeth", Role: "Director" },
-        { Name: "Christina", ReportingPerson: "Elizabeth", Role: "Manager" },
-        { Name: "Yoshi", ReportingPerson: "Christina", Role: "Lead" },
-        { Name: "Philip", ReportingPerson: "Christina", Role: "Lead" },
-        { Name: "Yang", ReportingPerson: "Elizabeth", Role: "Manager" },
-        { Name: "Roland", ReportingPerson: "Yang", Role: "Lead" },
-        { Name: "Yvonne", ReportingPerson: "Yang", Role: "Lead" }
-        ];
-      //To represent the roles
-      let codes = {
-          Director: "rgb(0, 139,139)",
-          Manager: "rgb(30, 30,113)",
-          Lead: "rgb(0, 100,0)"
-      }
-      this.pageSettings = {
-        pageWidth: 2000,
-        pageHeight: 2000,
-      };
-      this.dataSourceSettings ={ id: "Name",parent: "ReportingPerson",dataSource: data};
-      this.layout = { type: "organizationalchart", orientation: "toptobottom", horizontalSpacing: 25, verticalSpacing: 35, marginX: 3, marginY: 3};
-      // Bind custom data with node
-      this.nodeTemplate = function (diagram, node) {
-              node.labels[0].text = node.Name;
-            node.fillColor = codes[node.Role];
-              };
+
       this.defaultSettings = {
           node: {
               fillColor: "#88C65C", width: 100,
-              height: 40, borderColor: "black", borderWidth: 1, labels: [{ name: "label1", fontColor: "white", fontSize: 12, margin: { left: 10, right: 10 } }]
+              height: 40, borderColor: "black", borderWidth: 1, labels: [{ name: "label1", fontColor: "black", fontSize: 12, margin: { left: 10, right: 10 } }]
           },
           connector: {
               lineColor: "#000000", segments: [{ type: "orthogonal" }], targetDecorator: { shape: "none" }
@@ -137,10 +114,10 @@ export class DiagramComponent implements OnInit {
     json[key] = value;
 
     var string = JSON.stringify(json);
-
+    
     // pass diagram json to server.js
     let dd = new Diagram;
-    dd.id = diagramName;
+    dd.name = diagramName;
     dd.value = string;
     console.log(dd);
 
@@ -155,19 +132,16 @@ export class DiagramComponent implements OnInit {
         },
         () => {
             console.log("The POST observable is now completed.");
-        });
-
-    //   save.dataSourceSettings.dataSource.forEach(element => {
-    //     let index = 1;
-    //     let temp = [];
-    //     let item = element as Array<any>;
-    //     debugger
-    //     element.forEach
-    //       item.push({id: index++});
-    //       debugger
-    //   }); 
-    //   alert(JSON.stringify(save));
-    
+        });    
   }
-  
+
+  loadDiagram(){      
+    var diagram = $("#diagramCore").ejDiagram("instance");
+    var data;
+    var temp = this.http.get('http://localhost:3000/api/workflow')
+    .subscribe(data => {
+        console.log(data);
+        diagram.load(data[0]);
+    })    
+  }
 }
