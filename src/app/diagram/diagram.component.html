@@ -34,13 +34,24 @@
   <br>
   <div>
     <label for="diagramName">Diagram Name: </label>
-    <input #diagramName type="text" id="diagramName" required>
+    <input #diagramName type="text" id="diagramName" required [value]="diagramNameList.value"> 
+  </div>
+  <br>
+  <div>
+    <label for="diagramNameList">Diagrams: </label>
+    <select class="form-control" id="diagramNameList" required [(ngModel)]="selectedDiagram" (ngModelChange)="diagramNameList.value=$event">
+      <option *ngFor="let diagram of diagramNameList" [value]="diagram">{{diagram}}</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label for="nodeName">Node Name: </label>
+    <input #diagramName type="text" id="nodeName" disabled> 
   </div>
   <br>
   <div>
     <input type="button" value="Save Diagram" (click)="saveDiagram(diagramName.value)" />
-    <input type="button" value="Update Diagram" (click)="updateDiagram(diagramName.value)" />
-    <input type="button" value="Load Diagram" (click)="loadDiagram()" />
+    <input type="button" value="Load Diagram" (click)="loadDiagram(diagramNameList.value)" />
   </div>
 </body>
 
