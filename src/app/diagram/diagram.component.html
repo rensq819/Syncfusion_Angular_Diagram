@@ -34,7 +34,7 @@
   <br>
   <div>
     <label for="diagramName">Diagram Name: </label>
-    <input #diagramName type="text" id="diagramName" required [value]="diagramNameList.value"> 
+    <input #diagramName type="text" id="diagramName" required>
   </div>
   <br>
   <div>
@@ -46,7 +46,13 @@
   <br>
   <div>
     <label for="nodeName">Node Name: </label>
-    <input #diagramName type="text" id="nodeName" disabled> 
+    <input #nodeName type="text" id="nodeName">
+
+    <label for="startDate">Start Date: </label>
+    <input #startDate type="text" id="startDate">
+
+    <label for="endDate">End Date: </label>
+    <input #endDate type="text" id="endDate">
   </div>
   <br>
   <div>

@@ -1,8 +1,11 @@
-<!-- <div id="parent" >
-	<input id="btnOpen" style="height: 30px" type="button" ej-button class="ejinputtext" value="Click to open Dialog" (click)="onClick($event)" *ngIf="button_display"/>
-	<ej-dialog id="basicDialog" #dialog title="Blah" [(enableResize)]="resize" containment="#parent" (close)="onClose($event)">
-		Last update: 5/4/2018
-	</ej-dialog>
-</div> -->
-
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+	  <span>{{title}}</span>
+	  <span class="example-spacer"></span>
+  
+	  <button mat-button routerLink="/dashboard">Dashboard</button>
+	  <button mat-button routerLink="/faq">FAQ</button>
+	</mat-toolbar-row>
+  </mat-toolbar>
+  
 <router-outlet></router-outlet>

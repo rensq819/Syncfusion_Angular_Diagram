@@ -39,3 +39,11 @@ app.get('/api/workflow', function (req, res) {
         res.send(data);
     });    
 })
+
+app.get('/api/faq', function (req, res) {
+    var temp = db.collection('faq').find({})
+    .toArray(function(error, data){
+        if(error) throw error;
+        res.send(data);
+    });    
+})

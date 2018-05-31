@@ -113,12 +113,12 @@ export class DiagramComponent implements OnInit {
 				// get names 
 				dataArray.forEach(element => {
 					this.diagramList.push(element);
-					if(!this.diagramNameList.includes(element["name"])){
+					if (!this.diagramNameList.includes(element["name"])) {
 						this.diagramNameList.push(element["name"]);
 					}
-				});				
+				});
 			})
-	}	
+	}
 
 	saveDiagram(diagramName: string) {
 
@@ -155,7 +155,12 @@ export class DiagramComponent implements OnInit {
 				() => {
 					console.log("The POST observable is now completed.");
 				});
-			
+
+
+		//console.log(diagram['_selectedItem']);
+		let selectedNode = diagram['_selectedItem'];
+
+
 		window.location.reload();
 		return result;
 
@@ -167,17 +172,17 @@ export class DiagramComponent implements OnInit {
 		let result;
 
 		this.diagramList.forEach(element => {
-			if(element["name"] == selectedDiagramName){
-				tempList.push(element);	
-				result = element;	
+			if (element["name"] == selectedDiagramName) {
+				tempList.push(element);
+				result = element;
 			}
 		});
 
-		if(tempList.length > 1){
+		if (tempList.length > 1) {
 			let recentDate = tempList[0]["creationDate"];
 			result = tempList[0];
 			tempList.forEach(element => {
-				if(element["creationDate"] > recentDate){
+				if (element["creationDate"] > recentDate) {
 					result = element;
 				}
 			});
@@ -185,5 +190,16 @@ export class DiagramComponent implements OnInit {
 
 		diagram.load(result);
 		console.log(diagram);
+
+
+	}
+
+	onChangeEvent() {
+		// click event for diagram
+		$("#diagramcontent").ejDiagram({
+			click: function (args) {
+				console.log('haha');
+			 }
+		});
 	}
 }
