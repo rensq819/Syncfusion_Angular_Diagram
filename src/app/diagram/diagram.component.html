@@ -43,7 +43,7 @@
       <option *ngFor="let diagram of diagramNameList" [value]="diagram">{{diagram}}</option>
     </select>
   </div>
-  <br>
+  <!-- <br>
   <div>
     <label for="nodeName">Node Name: </label>
     <input #nodeName type="text" id="nodeName">
@@ -53,7 +53,7 @@
 
     <label for="endDate">End Date: </label>
     <input #endDate type="text" id="endDate">
-  </div>
+  </div> -->
   <br>
   <div>
     <input type="button" value="Save Diagram" (click)="saveDiagram(diagramName.value)" />

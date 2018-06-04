@@ -1,1 +1,37 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+h1{
+    font-family: "Open Sans Condensed";
+    font-size: 28px;    
+    line-height: 15px;
+    letter-spacing: normal;
+}
+
+h2{
+    font-family: "Open Sans Condensed";
+    font-size: 24px;
+}
+
+.faq{
+    padding-left:16px;
+}
+.questions{
+    font-family: "Open Sans";
+    font-size: 18px;
+}
+
+.answers{
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+
+.title{
+    width: 373px;
+    height: 76px;
+}
+
+.panel-group{
+    width:968px;
+}
