@@ -7,6 +7,7 @@ import { DiagramComponent } from './diagram/diagram.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FaqComponent } from './faq/faq.component';
+import { HeaderComponent } from './header/header.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -14,7 +15,8 @@ import { MaterialModule } from './material.module';
   declarations: [
     AppComponent,
     DiagramComponent,
-    FaqComponent  
+    FaqComponent,
+    HeaderComponent  
   ],
   imports: [
     BrowserModule, 

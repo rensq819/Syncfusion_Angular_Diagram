@@ -1,0 +1,49 @@
+.topnav{
+    width: auto;
+    height: 54px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.topline{
+    height: 5px;
+    background-color: #253245;
+}
+.title{
+    width: auto;
+    width: 300px;
+    height: 24px;
+    font-family: "Open Sans Condensed";
+    font-size: 18px; 
+    font-weight: bold;
+    letter-spacing: 0.9px;
+    color: #0071bc;
+    padding-left: 62.5px;
+    padding-top: 14px;
+    padding-bottom: 16px;
+    display: inline-block;
+}
+
+.button{
+    height: 24px;
+    display: inline-block;
+    font-size: 1.1em;
+    letter-spacing: 15px;
+    position: absolute;
+    right: 15px;
+    padding-top: 14px;
+    padding-left: 20px;
+}
+
+.vl {
+    width: 2px; 
+    background-color: lightgray; 
+    height: 50px; 
+    display: inline-block;
+    /* border-left: 2px solid lightgray;
+    height: 50px;
+    padding-right: -20px; */
+    position: absolute;
+    top: 0;
+    margin-right: 20px;
+}
