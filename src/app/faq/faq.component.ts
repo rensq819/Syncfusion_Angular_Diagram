@@ -13,7 +13,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class FaqComponent implements OnInit {
   content: any[];
   faq: any[];
-
   constructor(private http: HttpClient) { }
 
   ngOnInit() {

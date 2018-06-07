@@ -1,0 +1,35 @@
+<body>
+  <button mat-raised-button (click)="show = !show">Click Me</button>
+  <br>
+  <div class="example-container mat-elevation-z8" *ngIf="show" #table>
+    <mat-table [dataSource]="dataSource">
+  
+      <!-- Vendor Column -->
+      <ng-container matColumnDef="Vendor">
+        <mat-header-cell *matHeaderCellDef> Vendor </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.vendor}} </mat-cell>
+      </ng-container>
+  
+      <!-- Price Column -->
+      <ng-container matColumnDef="Price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+      </ng-container>
+  
+      <!-- Sold To Column -->
+      <ng-container matColumnDef="Sold To">
+        <mat-header-cell *matHeaderCellDef> Sold To </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.soldTo}} </mat-cell>
+      </ng-container>
+  
+      <!-- Date of Purchase Column -->
+      <ng-container matColumnDef="Date of Purchase">
+        <mat-header-cell *matHeaderCellDef> Date of Purchase </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dateOfPurchase}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</body>

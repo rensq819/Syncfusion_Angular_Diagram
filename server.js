@@ -47,3 +47,11 @@ app.get('/api/faq', function (req, res) {
         res.send(data);
     });    
 })
+
+app.get('/api/vendor', function (req, res) {
+    var temp = db.collection('vendor').find({})
+    .toArray(function(error, data){
+        if(error) throw error;
+        res.send(data);
+    });    
+})

@@ -9,6 +9,7 @@ import { EJComponents } from 'ej-angular2';
 export class AppComponent {
   resize: boolean;
   button_display: boolean;
+  
   @ViewChild('dialog') dialog: EJComponents <any, any>;
     constructor() {
     this.resize = false;
